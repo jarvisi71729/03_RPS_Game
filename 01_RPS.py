@@ -45,7 +45,7 @@ while keep_going == "":
         while player is False:
 
             player = input("Rock, Paper, Scissors, Shoot! ").capitalize()
-
+            print(computer)
             # If user ties with the computer
 
             if player == computer:
@@ -102,8 +102,8 @@ while keep_going == "":
 
             # if user fails to enter a valid item
 
-        else:
-            print("Error! Please enter one of the three options! (Rock, Paper, Scissors)")
+        # else:
+        #     print("Error! Please enter one of the three options! (Rock, Paper, Scissors)")
 
             # print end of game results
 
