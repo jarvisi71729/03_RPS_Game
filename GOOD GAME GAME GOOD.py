@@ -1,4 +1,5 @@
 import random
+# without rounds
 
 
 def int_check(question, low, high):

@@ -1,6 +1,37 @@
 import random
 
 
+# colour list (shortens code / makes code tidier)
+# mention previous code trialing & error (colour) on slides
+
+# def hl_statement(statement, char):
+#     print()
+#     print(char * len(statement))
+#     print(statement)
+#     print(char * len(statement))
+#     print
+
+# red: error messages
+red = "\u001b[31m"
+
+green = "\u001b[32m"
+
+gold = "\u001b[33m"
+
+dblue = "\u001b[34m"
+
+pink = "\u001b[35m"
+
+lblue = "\u001b[36m"
+
+grey = "\u001b[37m"
+
+colour_end = "\u001b[0m"
+
+rainbow = ["red", "green", "gold", "dblue", "pink", "lblue", "grey"]
+# china = hl_statement("pp", "p")
+
+
 def int_check(question, low, high):
     valid = False
     while not valid:
@@ -10,9 +41,9 @@ def int_check(question, low, high):
                 valid = True
                 return response
             else:
-                print("You did not enter a number between {} and {}".format(low, high))
+                print(u"{}You did not enter a number between {} and {}{}".format(red, low, high, colour_end))
         except ValueError:
-            print("Invalid input")
+            print(u"{}Invalid input{}".format(red, colour_end))
 
 
 def string_checker(question, to_check):
@@ -27,7 +58,8 @@ def string_checker(question, to_check):
             elif response == item[0]:
                 return item
 
-        print("sorry that is not a valid response")
+        print(u"{}Sorry that is not a valid response{}".format(red, colour_end))
+
 
 # player_wins = 0
 # computer_wins = 0
@@ -38,20 +70,20 @@ def outcomes(user, computer):
     computer_wins = 0
 
     if user == computer:
-        result = "Draw"
+        result = u"{}Draw{}".format(gold, colour_end)
 
     elif user == "paper" and computer == "rock":
-        result = "User wins"
+        result = u"{}User wins{}".format(green, colour_end)
         player_wins += 1
 
     elif user == "rock" and computer == "scissors":
-        result = "User wins"
+        result = u"{}User wins{}".format(green, colour_end)
 
     elif user == "scissors" and computer == "paper":
-        result = "User wins"
+        result = u"{}User wins{}".format(green, colour_end)
 
     else:
-        result = "User loses"
+        result = u"{}User loses{}".format(pink, colour_end)
         computer_wins += 1
     return result
 
@@ -70,6 +102,6 @@ while player is False:
     # computer range of choices
     computer = random.choice(game_items)
 
-    print(computer)
-    user = string_checker("Rock, Paper, Scissors, Shoot! ", game_items)
+    print("{}{}{}".format(grey, computer, colour_end))
+    user = string_checker(u"{}Rock, Paper, Scissors, Shoot!{} ".format(dblue, colour_end), game_items)
     print(outcomes(user, computer))
